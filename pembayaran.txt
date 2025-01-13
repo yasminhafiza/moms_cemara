@@ -1,0 +1,77 @@
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      document
+        .getElementById("btn-selengkapnya")
+        .addEventListener("click", function() {
+          Swal.fire({
+            title: '<h2 class="text-xl font-bold">Tentang <span class="text-pink-500">Mom&#39;s Cemara</span></h2>',
+            html: `<div class="text-left bg-[#B6EADD]">
+                              <p class="mb-4">Moms Cemara adalah sebuah toko kue yang berdedikasi untuk menghadirkan kue-kue berkualitas tinggi dengan cita rasa rumahan yang autentik. Didirikan dengan cinta dan semangat untuk menciptakan kelezatan yang dapat dinikmati oleh seluruh keluarga, Moms Cemara memastikan bahwa setiap produk dibuat dari bahan-bahan terbaik dan resep yang telah teruji, sehingga semua produk yang diproduksi sudah teruji halal.</p>
+                              <p>Moms Cemara percaya bahwa kue bukan hanya sekedar makanan, tetapi juga sebuah sarana untuk menyebarkan kebahagiaan dan kehangatan. Oleh karena itu, setiap kue yang dihasilkan tidak hanya enak, tetapi juga dibuat dengan penuh perhatian dan kasih sayang, sehingga setiap gigitan membawa kebahagiaan tersendiri.</p>
+                          </div>`,
+            showCloseButton: true,
+            showConfirmButton: false,
+            customClass: {
+              popup: "bg-[#B6EADD]",
+              title: "text-black",
+              htmlContainer: "text-white",
+              confirmButton: "bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-4 rounded-xl",
+            },
+          });
+        });
+    });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const mobileMenuButton = document.querySelector("button.md\\:hidden"); // Pastikan class sesuai dengan HTML Anda
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    // Pastikan elemen ditemukan sebelum menambahkan event listener
+    if (mobileMenuButton && mobileMenu) {
+        // Toggle menu visibility ketika tombol diklik
+        mobileMenuButton.addEventListener("click", function () {
+            const isHidden = mobileMenu.classList.contains("hidden");
+            if (isHidden) {
+                mobileMenu.classList.remove("hidden");
+            } else {
+                mobileMenu.classList.add("hidden");
+            }
+        });
+
+        // Tutup menu saat mengklik di luar menu atau tombol
+        document.addEventListener("click", function (event) {
+            if (
+                !mobileMenu.contains(event.target) &&
+                !mobileMenuButton.contains(event.target)
+            ) {
+                mobileMenu.classList.add("hidden");
+            }
+        });
+    } else {
+        // Jika elemen tidak ditemukan, berikan peringatan di console
+        if (!mobileMenuButton) {
+            console.warn("Elemen dengan class 'button.md:hidden' tidak ditemukan.");
+        }
+        if (!mobileMenu) {
+            console.warn("Elemen dengan id 'mobile-menu' tidak ditemukan.");
+        }
+    }
+});
+
+
+
+
+    // alert payment success
+    function successnotif() {
+      Swal.fire({
+        position: "top-middle",
+        icon: "success",
+        title: "Pembayaran Telah berhasil",
+        showConfirmButton: false,
+        timer: 1500,
+        background: "#FFE0EB",
+        customClass: {
+          popup: "bg-pink-200",
+        },
+      });
+    }
+  </script>

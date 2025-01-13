@@ -2,8 +2,13 @@
 session_start();
 include '../koneksi/koneksi.php';
 
-
+if(!isset($_SESSION['admin'])) {
+    echo "<script>alert('login terlebih dahulu');</script>";
+    echo "<script>location='login.php';</script>";
+    exit();
+}
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -26,6 +31,10 @@ include '../koneksi/koneksi.php';
 
   <!-- jQuery (optional, only if needed for other scripts) -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <!-- Jika menggunakan PNG, sesuaikan dengan kode ini -->
+    <link rel="icon" href="../assets/foto/logo.jpg" type="image/png"> 
   <style>
     /* Menambahkan jarak pada dropdown */
     
@@ -58,27 +67,30 @@ include '../koneksi/koneksi.php';
             </a>
             <ul class="dropdown-menu" aria-labelledby="masterDropdown">
               <li><a class="dropdown-item" href="index.php?halaman=kategori">Kategori</a></li>
-              <li><a class="dropdown-item" href="master/jenisdoktrin">Laporan</a></li>
               <li><a class="dropdown-item" href="index.php?halaman=produk">Produk</a></li>
-              <li><a class="dropdown-item" href="master/unitorganisasi">Pembelian</a></li>
-              <li><a class="dropdown-item" href="master/jenisdoktrin">Pelanggan</a></li>
+              <li><a class="dropdown-item" href="index.php?halaman=pelanggan">Pelanggan</a></li>
+              <li><a class="dropdown-item" href="index.php?halaman=pembelian">Pembelian</a></li>
+              <li><a class="dropdown-item" href="index.php?halaman=pengiriman">Pengiriman</a></li>
+
+              <li><a class="dropdown-item" href="index.php?halaman=laporan">Laporan</a></li>
             </ul>
           </li>
 
-          <!-- Admin Profile -->
-          <li class="nav-item dropdown">
-            <a class="nav-link  d-flex align-items-center" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <img src="../assets/foto/profile.png" alt="Profile" class="profile-img me-2">
-              <span class="fw-bold" style="margin-left: 10px;">Administrator</span>
+          <!-- Admin Profile Dropdown -->
+<li class="nav-item dropdown">
+    <a class="nav-link  d-flex align-items-center" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <img src="../assets/foto/profile.png" alt="Profile" class="profile-img me-2">
+        <span class="fw-bold" style="margin-left: 10px;">Administrator</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="userDropdown">
+        <li>
+            <a class="dropdown-item" href="logout.php">
+                <i class="fas fa-sign-out-alt me-2"></i>Logout
             </a>
-            <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="userDropdown">
-              <li>
-                <a class="dropdown-item" onclick="window.location.href='login'">
-                  <i class="fas fa-sign-out-alt me-2"></i>Logout
-                </a>
-              </li>
-            </ul>
-          </li>
+        </li>
+    </ul>
+</li>
+
         </ul>
       </div>
     </div>
@@ -91,48 +103,54 @@ include '../koneksi/koneksi.php';
    <div class="container-fluid">
                 <!-- Page Heading -->
                 <?php
-                if(isset($_GET['halaman'])) {
-                    if($_GET['halaman']=="kategori") {
-                        include 'kategori.php';
-                    } elseif($_GET['halaman']=="tambah_kategori") {
-                        include 'tambah/tambah_kategori.php';
-                    } elseif($_GET['halaman']=="edit_kategori") {
-                        include 'edit/edit_kategori.php';
-                    } elseif($_GET['halaman']=="hapus_kategori") {
-                        include 'hapus/hapus_kategori.php';
-                    } elseif($_GET['halaman']=="produk") {
-                        include 'produk.php';
-                    } elseif($_GET['halaman']=="tambah_produk") {
-                        include 'tambah/tambah_produk.php';
-                    } elseif($_GET['halaman']=="detail_produk") {
-                        include 'detail/detail_produk.php';
-                    } elseif($_GET['halaman']=="hapus_foto") {
-                        include 'hapus/hapus_foto.php';
-                    } elseif($_GET['halaman']=="edit_produk") {
-                        include 'edit/edit_produk.php';
-                    } elseif($_GET['halaman']=="hapus_produk") {
-                        include 'hapus/hapus_produk.php';
-                    } elseif($_GET['halaman']=="pembelian") {
-                        include 'pembelian.php';
-                    } elseif($_GET['halaman']=="detail_pembelian") {
-                        include 'detail/detail_pembelian.php';
-                    } elseif($_GET['halaman']=="hapus_pembelian") {
-                        include 'hapus/hapus_pembelian.php';
-                    }  elseif($_GET['halaman']=="pembayaran") {
-                        include 'pembayaran.php';
-                    }elseif($_GET['halaman']=="laporan") {
-                        include 'laporan.php';
-                    } elseif($_GET['halaman']=="logout") {
-                        include 'logout.php';
-                    } elseif($_GET['halaman']=="pelanggan") {
-                        include 'pelanggan.php';
-                    } elseif($_GET['halaman']=="hapus_pelanggan") {
-                        include 'hapus/hapus_pelanggan.php';
-                    }
-                } else {
-                    include 'dashboard.php';
-                }
-                ?>
+if (isset($_GET['halaman'])) {
+    if ($_GET['halaman'] == "kategori") {
+        include 'kategori.php';
+    } elseif ($_GET['halaman'] == "tambah_kategori") {
+        include 'tambah/tambah_kategori.php';
+    } elseif ($_GET['halaman'] == "edit_kategori") {
+        include 'edit/edit_kategori.php';
+    } elseif ($_GET['halaman'] == "hapus_kategori") {
+        include 'hapus/hapus_kategori.php';
+    } elseif ($_GET['halaman'] == "produk") {
+        include 'produk.php';
+    } elseif ($_GET['halaman'] == "tambah_produk") {
+        include 'tambah/tambah_produk.php';
+    } elseif ($_GET['halaman'] == "detail_produk") {
+        include 'detail/detail_produk.php';
+    } elseif ($_GET['halaman'] == "hapus_foto") {
+        include 'hapus/hapus_foto.php';
+    } elseif ($_GET['halaman'] == "edit_produk") {
+        include 'edit/edit_produk.php';
+    } elseif ($_GET['halaman'] == "hapus_produk") {
+        include 'hapus/hapus_produk.php';
+    } elseif ($_GET['halaman'] == "pembelian") {
+        include 'pembelian.php';
+    } elseif ($_GET['halaman'] == "detail_pembelian") {
+        include 'detail/detail_pembelian.php';
+    } elseif ($_GET['halaman'] == "hapus_pembelian") {
+        include 'hapus/hapus_pembelian.php';
+    } elseif ($_GET['halaman'] == "pembayaran") {
+        include 'pembayaran.php';
+    } elseif ($_GET['halaman'] == "laporan") {
+        include 'laporan.php';
+    } elseif ($_GET['halaman'] == "logout") {
+        include 'logout.php';
+    } elseif ($_GET['halaman'] == "pelanggan") {
+        include 'pelanggan.php';
+    } elseif ($_GET['halaman'] == "hapus_pelanggan") {
+        include 'hapus/hapus_pelanggan.php';
+    } elseif ($_GET['halaman'] == "pengiriman") {
+        include 'pengiriman.php';
+    } elseif ($_GET['halaman'] == "detail_pengiriman") {
+      include 'detail_pengiriman.php'; 
+    }
+} else {
+    include 'dashboard.php';
+}
+?>
+
+
             </div>
             <!-- /.container-fluid -->
         </div>

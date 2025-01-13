@@ -1,0 +1,250 @@
+ <!-- Navbar -->
+    <nav
+      class="flex items-center justify-between px-4 md:px-8 lg:px-12 py-4 bg-gray-300/50 backdrop-blur-md fixed w-full z-50"
+    >
+      <div class="flex items-center">
+        <img
+          src="../assets/foto/logo.png"
+          alt="logo"
+          class="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 rounded-full"
+        />
+        <span class="ml-2 text-sm md:text-base lg:text-lg font-bold text-white"
+          >MOM'S CEMARA</span
+        >
+      </div>
+
+      <!-- Desktop Menu -->
+      <div
+        class="hidden md:flex items-center space-x-4 lg:space-x-6 text-white"
+      >
+        <a href="../keranjang.php"
+          ><button>
+            <img
+              src="../assets/foto/Shopping Bag.png"
+              alt="Shopping Bag"
+              class="w-6 h-6 lg:w-7 lg:h-7"
+            /></button
+        ></a>
+        <a
+          href="../index.php"
+          class="hover:text-gray-300 text-sm lg:text-base"
+          >Beranda</a
+        >
+        <a
+          href="../index.php#menu-section"
+          class="hover:text-gray-300 text-sm lg:text-base"
+          >Menu</a
+        >
+        <a
+          href="index.php#promo-section"
+          class="hover:text-gray-300 text-sm lg:text-base"
+          >Promo</a
+        >
+        <a href="../pelanggan/profile_user.php">
+          <button
+            class="px-3 py-1.5 lg:px-4 lg:py-2 rounded-lg hover:bg-white hover:text-gray-800 transition text-sm lg:text-base"
+          >
+            <img
+              src="../assets/foto/avatar.png"
+              alt=""
+              class="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 rounded-full object-cover"
+            />
+          </button>
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button class="md:hidden text-white">
+        <svg
+          class="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"
+          ></path>
+        </svg>
+      </button>
+
+      <!-- Mobile Menu -->
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden fixed top-16 right-0 h-screen w-64 bg-gray-300/50 backdrop-blur-md p-4 z-40 transform transition-transform duration-300"
+      >
+        <div class="flex flex-col space-y-4 text-white">
+          <!-- Profile section for mobile -->
+          <div class="flex flex-col items-center mb-4">
+            <img
+              src="../assets/foto/avatar.png"
+              alt="Profil"
+              class="rounded-full mb-4 w-24 h-24"
+            />
+            <p class="text-lg font-medium text-black">Maria Christin</p>
+          </div>
+
+          <!-- Navigation links -->
+          <nav>
+            <ul class="flex flex-col space-y-3">
+              <li>
+                <a
+                  href="profile_user.html"
+                  class="block p-2 rounded-md text-black text-center hover:bg-[#B6EADD]"
+                  >Edit Profil</a
+                >
+              </li>
+              <li>
+                <a
+                  href="pesanan_user.html"
+                  class="block p-2 rounded-md text-black text-center hover:bg-[#B6EADD]"
+                  >Pesanan Saya</a
+                >
+              </li>
+              <li>
+                <a
+                  href="hapus_akun.html"
+                  class="block p-2 rounded-md text-black text-center hover:bg-[#B6EADD]"
+                  >Hapus Akun</a
+                >
+              </li>
+              <li>
+                <a href="#" class="flex justify-center hover:text-black">
+                  <img
+                    src="../assets/foto/Shopping Bag.png"
+                    alt="Shopping Bag"
+                    class="w-6 h-6"
+                  />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="index_after.html"
+                  class="block text-black text-center hover:text-black"
+                  >Beranda</a
+                >
+              </li>
+              <li>
+                <a
+                  href="index_after.html"
+                  class="block text-black text-center hover:text-black"
+                  >Menu</a
+                >
+              </li>
+              <li>
+                <a
+                  href="index_after.html"
+                  class="block text-black text-center hover:text-black"
+                  >Promo</a
+                >
+              </li>
+              <li>
+                <button
+                  class="p-2 mt-4 text-pink-600 border border-pink-600 rounded-md hover:bg-pink-300 w-full"
+                >
+                  Keluar
+                </button>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </nav>
+
+     <!-- Menu Section -->
+    <div class="bg-[#B6EADD] min-h-screen flex flex-col lg:flex-row">
+      <!-- Sidebar -->
+      <div
+        class="hidden lg:block w-full lg:w-1/4 bg-pink-200 p-6 lg:pt-36 flex flex-col justify-between"
+      >
+        <div>
+          <div class="flex flex-col items-center">
+            <img
+              src="../assets/foto/avatar.png"
+              alt="Profil"
+              class="rounded-full mb-4 w-24 h-24 lg:w-36 lg:h-36"
+            />
+            <p class="text-lg font-medium">Maria Christin</p>
+          </div>
+
+          <nav class="mt-6 lg:mt-2">
+            <ul
+              class="flex flex-wrap lg:flex-col justify-center lg:justify-start"
+            >
+              <li class="mb-3 w-full sm:w-auto">
+                <a
+                  href="profile_user.html"
+                  class="block p-2 rounded-md hover:bg-[#B6EADD] active:bg-[#B6EADD] w-full text-black text-center lg:text-left"
+                  >Edit Profil</a
+                >
+              </li>
+              <li class="mb-3 w-full sm:w-auto">
+                <a
+                  href="pesanan_user.html"
+                  class="block p-2 rounded-md hover:bg-[#B6EADD] active:bg-[#B6EADD] w-full text-center lg:text-left"
+                  >Pesanan Saya</a
+                >
+              </li>
+              <li class="w-full sm:w-auto">
+                <a
+                  href="hapus_akun.html"
+                  class="block p-2 rounded-md hover:bg-[#B6EADD] active:bg-[#B6EADD] w-full text-center lg:text-left"
+                  >Hapus Akun</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+        <button
+          class="p-2 mt-4 text-pink-600 border border-pink-600 rounded-md hover:bg-pink-300 w-full"
+        >
+          Keluar
+        </button>
+      </div>
+  <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const mobileMenuButton = document.querySelector("button.md\\:hidden");
+        const mobileMenu = document.getElementById("mobile-menu");
+
+        mobileMenuButton.addEventListener("click", function () {
+          const isHidden = mobileMenu.classList.contains("hidden");
+          if (isHidden) {
+            mobileMenu.classList.remove("hidden");
+          } else {
+            mobileMenu.classList.add("hidden");
+          }
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener("click", function (event) {
+          if (
+            !mobileMenu.contains(event.target) &&
+            !mobileMenuButton.contains(event.target)
+          ) {
+            mobileMenu.classList.add("hidden");
+          }
+        });
+      });
+
+      function changeprofil() {
+        Swal.fire({
+          title: "Do you want to save the changes?",
+          showDenyButton: true,
+          showCancelButton: true,
+          confirmButtonText: "Save",
+          denyButtonText: `Don't save`,
+        }).then((result) => {
+          /* Read more about isConfirmed, isDenied below */
+          if (result.isConfirmed) {
+            Swal.fire("Saved!", "", "success");
+          } else if (result.isDenied) {
+            Swal.fire("Changes are not saved", "", "info");
+          }
+        });
+      }
+
+     
+    </script>
