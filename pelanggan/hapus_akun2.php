@@ -54,9 +54,9 @@ if (isset($_GET['action']) && $_GET['action'] === 'delete') {
             text: "Proses ini tidak dapat dibatalkan!",
             icon: 'warning',
             showCancelButton: true,
-            confirmButtonColor: '#d33',
-            cancelButtonColor: '#3085d6',
-            confirmButtonText: 'Ya, hapus!',
+            confirmButtonColor: '#299076',
+            cancelButtonColor: '#C40043',
+            confirmButtonText: 'Hapus Akun',
             cancelButtonText: 'Batal'
         }).then((result) => {
             if (result.isConfirmed) {
