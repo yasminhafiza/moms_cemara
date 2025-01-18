@@ -48,7 +48,7 @@ while ($pecah = $ambil->fetch_assoc()) {
                             <img width="150" src="../assets/foto_produk/<?php echo $value['gambar']; ?>" alt="Foto Produk">
                         </td>
                         <td class="text-center" width="150">
-                        <a href="index.php?halaman=hapus_produk&id=<?php echo $value['id_produk']; ?>" class="btn btn-sm btn-danger">Hapus</a>
+                        <button class="btn btn-sm btn-danger" onclick="hapusProduk(<?php echo $value['id_produk']; ?>)">Hapus</button>
                         <a href="index.php?halaman=edit_produk&id=<?php echo $value['id_produk']; ?>" class="btn btn-sm btn-info">Edit</a>
                         </td>
                     </tr>
@@ -58,5 +58,29 @@ while ($pecah = $ambil->fetch_assoc()) {
         </div>
     </div>
 </main>
+
+<!-- Sertakan SweetAlert 2 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+    // Fungsi untuk menampilkan SweetAlert konfirmasi hapus
+    function hapusProduk(id) {
+        Swal.fire({
+            title: 'Apakah Anda yakin?',
+            text: 'Untuk menghapus!',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#299076',
+            cancelButtonColor: '#FF2671',
+            confirmButtonText: 'Hapus!',
+            cancelButtonText: 'Batal'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Jika pengguna mengonfirmasi, arahkan untuk menghapus kategori
+                window.location.href = 'index.php?halaman=hapus_produk&id=' + id;
+            }
+        });
+    }
+</script>
 
 
